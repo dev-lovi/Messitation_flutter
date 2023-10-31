@@ -1,0 +1,482 @@
+WindowManager:
+    FirstScreen:
+    SentidosScreen:
+    RespiracionScreen:
+    ElTiempoScreen:
+    DolorScreen:
+    PensamientosScreen:
+
+
+<ElementCard@MDCard>:
+    radius: '10dp'
+    spacing: '10dp'
+    padding: '10dp'
+    text: ''
+    orientation: 'vertical'
+    border_width: 0
+    ripple_behavior: True
+
+<FirstScreen>:
+    MDScreen:
+        name: 'first_screen'
+        md_bg_color: 1, 0.956, 0.956, 1
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: ['15dp', '10dp', '15dp', '0dp' ]   
+
+            ElementCard:    
+                size_hint: 1, .09
+                md_bg_color: (39/255, 40/255, 41/255, 1)
+                Label:
+                    text: 'Meditación Libre'  # Replace with your desired title text
+                    font_size: 23 # Adjust the font size as needed
+                    size_hint: None, None
+                    font_name: "Poppins"
+                    color: .92, .91, .61, 1 
+                    size: self.texture_size
+                    pos_hint: {"center_x": 0.5, "center_y": .5}  # Adjust the position as needed
+                    
+                
+
+            MDBoxLayout:
+                size_hint: 1, .02
+
+            GridLayout:
+                cols: 1
+                size: root.width, root.height
+                padding: ['0dp', '0dp', '0dp', '0dp' ]   
+
+
+
+            #CARTA DE MEDITACION SENTIDOS
+                ElementCard:    
+                    size_hint: 1, .5
+                    md_bg_color: 0.41, .5, .23, 1
+                    on_release: app.root.current = 'sentidos_screen'
+
+
+                    Label:
+                        text: 'Messitación 1  "Sentidos"'  # Replace with your desired title text
+                        font_size: 20 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": 1.0}  # Adjust the position as needed
+                    Image:
+                        source: 'assets/messi_campeon.jpeg'  # Replace with the path to your image
+                        allow_stretch: False
+                        keep_ratio: True
+
+                
+                GridLayout:
+                    cols: 2
+                    size: root.width, root.height
+                    padding: ['0dp', '10dp', '0dp', '10dp' ]   
+                    spacing: '10dp'
+
+
+                #CARTA 1 - DE MEDITACION RESPIRACIÓN
+                    ElementCard:    
+                        size_hint: 1, 1
+                        md_bg_color: 0.41, .5, .23, 1
+                        on_release: app.root.current = 'respiracion_screen'
+                        Label:
+                            text: 'M2  "Respiración"'  # Replace with your desired title text
+                            font_size: 14.5 # Adjust the font size as needed
+                            size_hint: None, None
+                            font_name: "Poppins"
+                            color: .92, .91, .61, 1 
+                            size: self.texture_size
+                            pos_hint: {"center_x": 0.5, "top": 1.0}  # Adjust the position as needed
+                        Image:
+                            source: 'assets/messi_barca.jpeg'  # Replace with the path to your image
+                            allow_stretch: False
+                            keep_ratio: True
+
+
+          
+                #CARTA 2 - DE MEDITACION EL TIEMPO
+                    ElementCard:    
+                        size_hint: 1, 1
+                        md_bg_color: 0.41, .5, .23, 1
+                        on_release: app.root.current = 'el_tiempo_screen'
+                        Label:
+                            text: 'M3  "El Tiempo"'  # Replace with your desired title text
+                            font_size: 16 # Adjust the font size as needed
+                            size_hint: None, None
+                            font_name: "Poppins"
+                            color: .92, .91, .61, 1 
+                            size: self.texture_size
+                            pos_hint: {"center_x": 0.5, "top": 1.0}  # Adjust the position as needed
+                        Image:
+                            source: 'assets/dibu.jpeg'  # Replace with the path to your image
+                            allow_stretch: False
+                            keep_ratio: True
+
+
+                #CARTA 3 - DE MEDITACION DOLOR
+                    ElementCard:    
+                        size_hint: 1, 1
+                        md_bg_color: 0.41, .5, .23, 1
+                        on_release: app.root.current = 'dolor_screen'
+                        Label:
+                            text: 'M4  "Dolor"'  # Replace with your desired title text
+                            font_size: 18 # Adjust the font size as needed
+                            size_hint: None, None
+                            font_name: "Poppins"
+                            color: .92, .91, .61, 1 
+                            size: self.texture_size
+                            pos_hint: {"center_x": 0.5, "top": 1.0}  # Adjust the position as needed                  
+                        Image:
+                            source: 'assets/messi_sad.jpeg'  # Replace with the path to your image
+                            allow_stretch: False
+                            keep_ratio: True
+
+
+                #CARTA 4 - DE MEDITACION PENSAMIENTOS
+                    ElementCard:    
+                        size_hint: 1, 1
+                        md_bg_color: 0.41, .5, .23, 1
+                        on_release: app.root.current = 'pensamientos_screen'
+                        Label:
+                            text: 'M5  "Pensamientos"'  # Replace with your desired title text
+                            font_size: 12.5 # Adjust the font size as needed
+                            size_hint: None, None
+                            font_name: "Poppins"
+                            color: .92, .91, .61, 1 
+                            size: self.texture_size
+                            pos_hint: {"center_x": 0.5, "top": 1.0}  # Adjust the position as needed
+                        Image:
+                            source: 'assets/messi_newells.jpeg'  # Replace with the path to your image
+                            allow_stretch: False
+                            keep_ratio: True
+        
+
+
+#PANTALLA SENTIDOS
+<SentidosScreen>:
+    name: 'sentidos_screen'
+    md_bg_color: 1, 0.956, 0.956, 1
+    #on_enter: root.music()
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        BoxLayout:
+            size_hint: 1, 0.7
+            padding: ['30dp', '80dp', '30dp', '80dp']
+
+            ElementCard:
+                size_hint: 1, 1
+                md_bg_color: 0.41, .5, .23, 1 #73/255, 89/255, 41/255, 1
+                padding: ['0dp', '0dp', '0dp', '60dp']
+
+                FloatLayout:
+                    size_hint: 1, 1
+                    
+                    Image:
+                        source: 'assets/covers/cover_messi_campeon.jpeg'  # Replace with your image source
+                        size_hint: .65, .65
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Label:
+                        text: 'Messitación 1'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .15}  # Adjust the position as needed                    
+                    
+                    Label:
+                        text: '"Sentidos"'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .09}  # Adjust the position as needed
+
+                MDIconButton:
+                    icon: 'play-outline'
+                    theme_text_color: 'Custom'
+                    text_color: 0.41, 0.5, 0.23, 1
+                    md_bg_color: 1, 0.956, 0.956, 1
+                    on_press: root.music()
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    MDIconButton:
+        icon: 'keyboard-return'
+        theme_text_color: 'Custom'
+        text_color: 0.41, 0.5, 0.23, 1
+        md_bg_color: 1, 0.956, 0.956, 1
+        on_release: 
+            root.stop_music()
+            app.root.current = 'first_screen'
+        pos_hint: {"center_x": 0.8, "center_y": 0.07}
+
+
+
+
+
+#PANTALLA RESPIRACIÓN
+<RespiracionScreen>:
+    name: 'respiracion_screen'
+    md_bg_color: 1, 0.956, 0.956, 1
+    #on_enter: root.music()
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        BoxLayout:
+            size_hint: 1, 0.7
+            padding: ['30dp', '80dp', '30dp', '80dp']
+
+            ElementCard:
+                size_hint: 1, 1
+                md_bg_color: 0.41, .5, .23, 1 #73/255, 89/255, 41/255, 1
+                padding: ['0dp', '0dp', '0dp', '60dp']
+
+                FloatLayout:
+                    size_hint: 1, 1
+                    
+                    Image:
+                        source: 'assets/covers/cover_messi_barca.jpg'  # Replace with your image source
+                        size_hint: .65, .65
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Label:
+                        text: 'Messitación 2'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .15}  # Adjust the position as needed                    
+                    
+                    Label:
+                        text: '"Respiración"'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .09}  # Adjust the position as needed                    
+
+                MDIconButton:
+                    icon: 'play-outline'
+                    theme_text_color: 'Custom'
+                    text_color: 0.41, 0.5, 0.23, 1
+                    md_bg_color: 1, 0.956, 0.956, 1
+                    on_press: root.music()
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    MDIconButton:
+        icon: 'keyboard-return'
+        theme_text_color: 'Custom'
+        text_color: 0.41, 0.5, 0.23, 1
+        md_bg_color: 1, 0.956, 0.956, 1
+        on_release: 
+            root.stop_music()
+            app.root.current = 'first_screen'
+        pos_hint: {"center_x": 0.8, "center_y": 0.07}
+
+
+
+
+
+#PANTALLA EL TIEMPO
+<ElTiempoScreen>:
+    name: 'el_tiempo_screen'
+    md_bg_color: 1, 0.956, 0.956, 1
+    #on_enter: root.music()
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        BoxLayout:
+            size_hint: 1, 0.7
+            padding: ['30dp', '80dp', '30dp', '80dp']
+
+            ElementCard:
+                size_hint: 1, 1
+                md_bg_color: 0.41, .5, .23, 1 #73/255, 89/255, 41/255, 1
+                padding: ['0dp', '0dp', '0dp', '60dp']
+
+                FloatLayout:
+                    size_hint: 1, 1
+                    
+                    Image:
+                        source: 'assets/covers/cover_dibu.jpeg'  # Replace with your image source
+                        size_hint: .65, .65
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Label:
+                        text: 'Messitación 3'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .15}  # Adjust the position as needed                    
+                    
+                    Label:
+                        text: '"El Tiempo"'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .09}  # Adjust the position as needed                    
+
+                MDIconButton:
+                    icon: 'play-outline'
+                    theme_text_color: 'Custom'
+                    text_color: 0.41, 0.5, 0.23, 1
+                    md_bg_color: 1, 0.956, 0.956, 1
+                    on_press: root.music()
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    MDIconButton:
+        icon: 'keyboard-return'
+        theme_text_color: 'Custom'
+        text_color: 0.41, 0.5, 0.23, 1
+        md_bg_color: 1, 0.956, 0.956, 1
+        on_release: 
+            root.stop_music()
+            app.root.current = 'first_screen'
+        pos_hint: {"center_x": 0.8, "center_y": 0.07}
+
+
+
+#PANTALLA DOLOR
+<DolorScreen>:
+    name: 'dolor_screen'
+    md_bg_color: 1, 0.956, 0.956, 1
+    #on_enter: root.music()
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        BoxLayout:
+            size_hint: 1, 0.7
+            padding: ['30dp', '80dp', '30dp', '80dp']
+
+            ElementCard:
+                size_hint: 1, 1
+                md_bg_color: 0.41, .5, .23, 1 #73/255, 89/255, 41/255, 1
+                padding: ['0dp', '0dp', '0dp', '60dp']
+
+                FloatLayout:
+                    size_hint: 1, 1
+                    
+                    Image:
+                        source: 'assets/covers/cover_messi_sad.jpg'  # Replace with your image source
+                        size_hint: .65, .65
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Label:
+                        text: 'Messitación 4'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .15}  # Adjust the position as needed                    
+                    
+                    Label:
+                        text: '"Dolor"'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .09}  # Adjust the position as needed                    
+
+                MDIconButton:
+                    icon: 'play-outline'
+                    theme_text_color: 'Custom'
+                    text_color: 0.41, 0.5, 0.23, 1
+                    md_bg_color: 1, 0.956, 0.956, 1
+                    on_press: root.music()
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    MDIconButton:
+        icon: 'keyboard-return'
+        theme_text_color: 'Custom'
+        text_color: 0.41, 0.5, 0.23, 1
+        md_bg_color: 1, 0.956, 0.956, 1
+        on_release: 
+            root.stop_music()
+            app.root.current = 'first_screen'
+        pos_hint: {"center_x": 0.8, "center_y": 0.07}
+
+
+#PANTALLA PENSAMIENTOS
+<PensamientosScreen>:
+    name: 'pensamientos_screen'
+    md_bg_color: 1, 0.956, 0.956, 1
+    #on_enter: root.music()
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        BoxLayout:
+            size_hint: 1, 0.7
+            padding: ['30dp', '80dp', '30dp', '80dp']
+
+            ElementCard:
+                size_hint: 1, 1
+                md_bg_color: 0.41, .5, .23, 1 #73/255, 89/255, 41/255, 1
+                padding: ['0dp', '0dp', '0dp', '60dp']
+
+                FloatLayout:
+                    size_hint: 1, 1
+                    
+                    Image:
+                        source: 'assets/covers/cover_messi_newells.jpg'  # Replace with your image source
+                        size_hint: .65, .65
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Label:
+                        text: 'Messitación 5'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .15}  # Adjust the position as needed                    
+                    
+                    Label:
+                        text: '"Pensamientos"'  # Replace with your desired title text
+                        font_size: 18 # Adjust the font size as needed
+                        size_hint: None, None
+                        font_name: "Poppins"
+                        color: .92, .91, .61, 1 
+                        size: self.texture_size
+                        pos_hint: {"center_x": 0.5, "top": .09}  # Adjust the position as needed                    
+
+                MDIconButton:
+                    icon: 'play-outline'
+                    theme_text_color: 'Custom'
+                    text_color: 0.41, 0.5, 0.23, 1
+                    md_bg_color: 1, 0.956, 0.956, 1
+                    on_press: root.music()
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    MDIconButton:
+        icon: 'keyboard-return'
+        theme_text_color: 'Custom'
+        text_color: 0.41, 0.5, 0.23, 1
+        md_bg_color: 1, 0.956, 0.956, 1
+        on_release: 
+            root.stop_music()
+            app.root.current = 'first_screen'
+        pos_hint: {"center_x": 0.8, "center_y": 0.07}
