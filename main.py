@@ -71,7 +71,7 @@ class ElTiempoScreen(MDScreen):
 
     def music(self):
         if not ElTiempoScreen.sound_2:  # If sound is not loaded yet
-            ElTiempoScreen.sound_2 = SoundLoader.load('example2.wav')
+            ElTiempoScreen.sound_2 = SoundLoader.load('test.wav')
         if ElTiempoScreen.sound_2:
             ElTiempoScreen.sound_2.play()
     
@@ -87,7 +87,7 @@ class DolorScreen(MDScreen):
 
     def music(self):
         if not DolorScreen.sound_3:  # If sound is not loaded yet
-            DolorScreen.sound_3 = SoundLoader.load('example2.wav')
+            DolorScreen.sound_3 = SoundLoader.load('test.wav')
         if DolorScreen.sound_3:
             DolorScreen.sound_3.play()
     
@@ -103,7 +103,7 @@ class PensamientosScreen(MDScreen):
 
     def music(self):
         if not PensamientosScreen.sound_4:  # If sound is not loaded yet
-            PensamientosScreen.sound_4 = SoundLoader.load('example2.wav')
+            PensamientosScreen.sound_4 = SoundLoader.load('test.wav')
         if PensamientosScreen.sound_4:
             PensamientosScreen.sound_4.play()
     
