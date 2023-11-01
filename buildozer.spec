@@ -53,7 +53,7 @@ requirements = python3crystax==3.6,kivy
 presplash.filename = %(source.dir)s/data/presplash.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/data/icon512x512.png
+icon.filename = /icon.png
 
 # (str) Supported orientation (one of landscape, portrait or all)
 orientation = portrait
@@ -67,7 +67,7 @@ orientation = portrait
 
 #
 # author = © Copyright Info
-
+k555
 # change the major version of python used by the app
 osx.python_version = 3
 
@@ -108,10 +108,10 @@ android.sdk = 23
 #android.private_storage = True
 
 # (str) Android NDK directory (if empty, it will be automatically downloaded.)
-android.ndk_path = ~/Desktop/crystax-ndk-10.3.2
+android.ndk_path = 
 
 # (str) Android SDK directory (if empty, it will be automatically downloaded.)
-#android.sdk_path = ~/Desktop/platform-tools
+#android.sdk_path = 
 
 # (str) ANT directory (if empty, it will be automatically downloaded.)
 #android.ant_path =
