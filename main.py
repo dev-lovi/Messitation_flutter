@@ -13,7 +13,7 @@ from kivy.core.audio import SoundLoader
 
 
 
-LabelBase.register(name="Poppins", fn_regular="assets/Poppins-Bold.ttf")
+LabelBase.register(name="Poppins", fn_regular="Poppins-Bold.ttf")
 Window.size = (360, 640)
 
 Config.set('graphics', 'width', '360')
@@ -41,7 +41,7 @@ class SentidosScreen(MDScreen):
 
     def music(self):
         if not SentidosScreen.sound:  # If sound is not loaded yet
-            SentidosScreen.sound = SoundLoader.load('assets/audio/sentidos.mp3')
+            SentidosScreen.sound = SoundLoader.load('sentidos.mp3')
         if SentidosScreen.sound:
             SentidosScreen.sound.play()
     
