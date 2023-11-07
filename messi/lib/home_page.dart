@@ -67,16 +67,16 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 0),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
             child: Container(
-              width: 350,
-              height: 350,
+              width: 320,
+              height: 320,
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Column(
-                children: [Image.asset('images/messi_sentado.png')],
+                children: [Image.asset('images/sentidos.png')],
               ),
             ),
           ),
