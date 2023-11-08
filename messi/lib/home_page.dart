@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:messi/sentidos.dart';
+import 'package:messi/respiracion.dart';
+import 'package:messi/playerfive.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -81,18 +84,34 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
             child: Container(
-              //!estaria bueno agregar un slider
               width: 320,
               height: 320,
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(30),
               ),
-              child: Column(
-                children: [Image.asset('images/sentidos.png')],
+
+              //? ACA AGREGAMOS EL ENLACE A SENTIDOS
+              child: GestureDetector(
+                onTap: () {
+                  // Navigate when the first container is tapped
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const Sentidos();
+                      },
+                    ),
+                  );
+                },
+
+                //! SENTIDOS
+                child: Column(
+                  children: [Image.asset('images/sentidos.png')],
+                ),
               ),
             ),
           ),
+
           //!Aca segui agregando cosas pa!
           Column(
             children: [
@@ -105,22 +124,55 @@ class HomePage extends StatelessWidget {
                       spacing: 10,
                       direction: Axis.vertical,
                       children: [
-                        Container(
-                          width: 155,
-                          height: 195,
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [Image.asset('images/respiracion.png')],
+                        //? ACA AGREGAMOS EL ENLACE A RESPIRACION
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate when the first container is tapped
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const Respiracion();
+                                },
+                              ),
+                            );
+                          },
+
+                          //! RESPIRACION
+                          child: Container(
+                            width: 155,
+                            height: 195,
+                            color: Colors.transparent,
+                            child: Column(
+                              children: [Image.asset('images/respiracion.png')],
+                            ),
                           ),
                         ),
+
                         Container(
                           width: 155,
                           height: 140,
                           color: Colors.transparent,
-                          child: Column(
-                            children: [Image.asset('images/5.png')],
+
+                          //? ACA AGREGAMOS EL ENLACE A CINCO
+                          child: GestureDetector(
+                            onTap: () {
+                              // Navigate when the first container is tapped
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                    return const PlayerFive();
+                                  },
+                                ),
+                              );
+                            },
+
+                            //! ACA ESTA LA POS 5
+                            child: Column(
+                              children: [Image.asset('images/5.png')],
+                            ),
                           ),
                         ),
+
                         Container(
                           width: 155,
                           height: 195,
@@ -162,7 +214,10 @@ class HomePage extends StatelessWidget {
                         Container(
                           width: 155,
                           height: 92.5,
-                          color: Colors.red,
+                          color: Colors.transparent,
+                          child: Column(
+                            children: [Image.asset('images/3.png')],
+                          ),
                         ),
                       ],
                     ),
@@ -170,7 +225,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
               ),
             ],
           ),
