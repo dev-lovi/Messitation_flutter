@@ -168,7 +168,9 @@ class HomePage extends StatelessWidget {
 
                             //! ACA ESTA LA POS 5
                             child: Column(
-                              children: [Image.asset('images/5.png')],
+                              children: [
+                                Image.asset('images/libre_violeta.png')
+                              ],
                             ),
                           ),
                         ),
@@ -178,7 +180,7 @@ class HomePage extends StatelessWidget {
                           height: 195,
                           color: Colors.transparent,
                           child: Column(
-                            children: [Image.asset('images/pensamientos.png')],
+                            children: [Image.asset('images/emociones.png')],
                           ),
                         ),
                       ],
@@ -192,7 +194,7 @@ class HomePage extends StatelessWidget {
                           height: 92.5,
                           color: Colors.transparent,
                           child: Column(
-                            children: [Image.asset('images/3.png')],
+                            children: [Image.asset('images/libre_naranja.png')],
                           ),
                         ),
                         Container(
@@ -200,7 +202,7 @@ class HomePage extends StatelessWidget {
                           height: 140,
                           color: Colors.transparent,
                           child: Column(
-                            children: [Image.asset('images/10.png')],
+                            children: [Image.asset('images/libre_verde.png')],
                           ),
                         ),
                         Container(
@@ -216,7 +218,7 @@ class HomePage extends StatelessWidget {
                           height: 92.5,
                           color: Colors.transparent,
                           child: Column(
-                            children: [Image.asset('images/3.png')],
+                            children: [Image.asset('images/libre_celeste.png')],
                           ),
                         ),
                       ],
