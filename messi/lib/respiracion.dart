@@ -40,7 +40,7 @@ class Respiracion extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Messitación 2',
+                                'Messitación 1',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -51,7 +51,7 @@ class Respiracion extends StatelessWidget {
                                 height: 6,
                               ),
                               const Text(
-                                'Respiración',
+                                'Sentidos',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 22,
