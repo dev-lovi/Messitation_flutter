@@ -138,11 +138,16 @@ class _RespiracionState extends State<Respiracion> {
                               isPlaying = !isPlaying;
                             });
                           },
-                          child: const NeuBox(
-                            child: Icon(
-                              Icons.play_arrow,
-                              size: 32,
-                            ),
+                          child: NeuBox(
+                            child: isPlaying
+                                ? const Icon(
+                                    Icons.stop,
+                                    size: 32,
+                                  )
+                                : const Icon(
+                                    Icons.play_arrow,
+                                    size: 32,
+                                  ),
                           ),
                         ),
                       ),
