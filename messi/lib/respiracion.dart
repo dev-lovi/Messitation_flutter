@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:messi/neu_box.dart';
@@ -14,6 +16,36 @@ class Respiracion extends StatefulWidget {
 class _RespiracionState extends State<Respiracion> {
   AudioPlayer player = AudioPlayer();
   bool isPlaying = false;
+  double progressValue = 0.0;
+  Duration totalDuration = Duration.zero;
+
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+
+    player.onDurationChanged.listen((Duration duration) {
+      setState(() {
+        totalDuration = duration;
+      });
+    });
+
+    startTimer();
+  }
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+
+    timer = Timer.periodic(oneSec, (Timer t) async {
+      if (totalDuration != Duration.zero) {
+        final position = await player.getCurrentPosition();
+        setState(() {
+          progressValue = (position!.inSeconds / totalDuration.inSeconds);
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +133,7 @@ class _RespiracionState extends State<Respiracion> {
               NeuBox(
                 child: LinearPercentIndicator(
                   lineHeight: 10,
-                  percent: 0.8,
+                  percent: totalDuration.inSeconds > 0 ? progressValue : 0.00,
                   progressColor: Colors.green,
                   backgroundColor: Colors.transparent,
                 ),
@@ -130,6 +162,7 @@ class _RespiracionState extends State<Respiracion> {
                           onTap: () {
                             if (isPlaying) {
                               player.stop();
+                              progressValue = 0.0;
                             } else {
                               player.play(AssetSource('sentidos.mp3'));
                             }
