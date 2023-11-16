@@ -1,9 +1,19 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:messi/neu_box.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-class Respiracion extends StatelessWidget {
+class Respiracion extends StatefulWidget {
   const Respiracion({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _RespiracionState createState() => _RespiracionState();
+}
+
+class _RespiracionState extends State<Respiracion> {
+  AudioPlayer player = AudioPlayer();
+  bool isPlaying = false;
 
   @override
   Widget build(BuildContext context) {
@@ -100,11 +110,11 @@ class Respiracion extends StatelessWidget {
               const SizedBox(height: 30),
 
               // pause play etc
-              const SizedBox(
+              SizedBox(
                 height: 80,
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: NeuBox(
                         child: Icon(
                           Icons.skip_previous,
@@ -115,16 +125,29 @@ class Respiracion extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: NeuBox(
-                          child: Icon(
-                            Icons.play_arrow,
-                            size: 32,
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            if (isPlaying) {
+                              player.stop();
+                            } else {
+                              player.play(AssetSource('sentidos.mp3'));
+                            }
+
+                            setState(() {
+                              isPlaying = !isPlaying;
+                            });
+                          },
+                          child: const NeuBox(
+                            child: Icon(
+                              Icons.play_arrow,
+                              size: 32,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    Expanded(
+                    const Expanded(
                       child: NeuBox(
                         child: Icon(
                           Icons.skip_next,
