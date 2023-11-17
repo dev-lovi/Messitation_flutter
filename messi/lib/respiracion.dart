@@ -48,6 +48,14 @@ class _RespiracionState extends State<Respiracion> {
   }
 
   @override
+  void dispose() {
+    // Cancel the timer when the widget is disposed
+    timer?.cancel();
+    player.dispose(); // Dispose of the audio player to free up resources
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -82,7 +90,7 @@ class _RespiracionState extends State<Respiracion> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Messitación 1',
+                                'Messitación 2',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -93,7 +101,7 @@ class _RespiracionState extends State<Respiracion> {
                                 height: 6,
                               ),
                               const Text(
-                                'Sentidos',
+                                'Respiración',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 22,
@@ -122,7 +130,7 @@ class _RespiracionState extends State<Respiracion> {
                 children: [
                   Text('0:00'),
                   Icon(Icons.shuffle),
-                  Icon(Icons.repeat),
+                  Icon(Icons.library_music, color: Colors.black),
                   Text('8:23'),
                 ],
               ),
@@ -161,7 +169,7 @@ class _RespiracionState extends State<Respiracion> {
                         child: GestureDetector(
                           onTap: () {
                             if (isPlaying) {
-                              player.stop();
+                              player.pause();
                               progressValue = 0.0;
                             } else {
                               player.play(AssetSource('sentidos.mp3'));
@@ -174,7 +182,7 @@ class _RespiracionState extends State<Respiracion> {
                           child: NeuBox(
                             child: isPlaying
                                 ? const Icon(
-                                    Icons.stop,
+                                    Icons.pause,
                                     size: 32,
                                   )
                                 : const Icon(

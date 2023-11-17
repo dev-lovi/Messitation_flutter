@@ -1,9 +1,59 @@
+import 'dart:async';
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:messi/neu_box.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-class Sentidos extends StatelessWidget {
+class Sentidos extends StatefulWidget {
   const Sentidos({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _SentidosState createState() => _SentidosState();
+}
+
+class _SentidosState extends State<Sentidos> {
+  AudioPlayer player = AudioPlayer();
+  bool isPlaying = false;
+  double progressValue = 0.0;
+  Duration totalDuration = Duration.zero;
+
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+
+    player.onDurationChanged.listen((Duration duration) {
+      setState(() {
+        totalDuration = duration;
+      });
+    });
+
+    startTimer();
+  }
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+
+    timer = Timer.periodic(oneSec, (Timer t) async {
+      if (totalDuration != Duration.zero) {
+        final position = await player.getCurrentPosition();
+        setState(() {
+          progressValue = (position!.inSeconds / totalDuration.inSeconds);
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    // Cancel the timer when the widget is disposed
+    timer?.cancel();
+    player.dispose(); // Dispose of the audio player to free up resources
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +130,7 @@ class Sentidos extends StatelessWidget {
                 children: [
                   Text('0:00'),
                   Icon(Icons.shuffle),
-                  Icon(Icons.repeat),
+                  Icon(Icons.library_music, color: Colors.black),
                   Text('8:23'),
                 ],
               ),
@@ -91,7 +141,7 @@ class Sentidos extends StatelessWidget {
               NeuBox(
                 child: LinearPercentIndicator(
                   lineHeight: 10,
-                  percent: 0.8,
+                  percent: totalDuration.inSeconds > 0 ? progressValue : 0.00,
                   progressColor: Colors.green,
                   backgroundColor: Colors.transparent,
                 ),
@@ -100,11 +150,11 @@ class Sentidos extends StatelessWidget {
               const SizedBox(height: 30),
 
               // pause play etc
-              const SizedBox(
+              SizedBox(
                 height: 80,
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: NeuBox(
                         child: Icon(
                           Icons.skip_previous,
@@ -115,16 +165,35 @@ class Sentidos extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: NeuBox(
-                          child: Icon(
-                            Icons.play_arrow,
-                            size: 32,
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            if (isPlaying) {
+                              player.pause();
+                              progressValue = 0.0;
+                            } else {
+                              player.play(AssetSource('sentidos.mp3'));
+                            }
+
+                            setState(() {
+                              isPlaying = !isPlaying;
+                            });
+                          },
+                          child: NeuBox(
+                            child: isPlaying
+                                ? const Icon(
+                                    Icons.pause,
+                                    size: 32,
+                                  )
+                                : const Icon(
+                                    Icons.play_arrow,
+                                    size: 32,
+                                  ),
                           ),
                         ),
                       ),
                     ),
-                    Expanded(
+                    const Expanded(
                       child: NeuBox(
                         child: Icon(
                           Icons.skip_next,
