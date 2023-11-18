@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:messi/dolor.dart';
 import 'package:messi/neu_box.dart';
+import 'package:messi/sentidos.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class Respiracion extends StatefulWidget {
@@ -111,7 +113,7 @@ class _RespiracionState extends State<Respiracion> {
                           ),
                           const Icon(
                             Icons.favorite,
-                            color: Colors.green,
+                            color: Colors.lightGreen,
                             size: 32,
                           )
                         ],
@@ -130,7 +132,7 @@ class _RespiracionState extends State<Respiracion> {
                 children: [
                   Text('0:00'),
                   Icon(Icons.shuffle),
-                  Icon(Icons.library_music, color: Colors.black),
+                  Icon(Icons.library_music, color: Colors.lightGreen),
                   Text('8:23'),
                 ],
               ),
@@ -142,7 +144,7 @@ class _RespiracionState extends State<Respiracion> {
                 child: LinearPercentIndicator(
                   lineHeight: 10,
                   percent: totalDuration.inSeconds > 0 ? progressValue : 0.00,
-                  progressColor: Colors.green,
+                  progressColor: Colors.lightGreen,
                   backgroundColor: Colors.transparent,
                 ),
               ),
@@ -154,11 +156,23 @@ class _RespiracionState extends State<Respiracion> {
                 height: 80,
                 child: Row(
                   children: [
-                    const Expanded(
-                      child: NeuBox(
-                        child: Icon(
-                          Icons.skip_previous,
-                          size: 32,
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          // Navigate when the first container is tapped
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return const Sentidos();
+                              },
+                            ),
+                          );
+                        },
+                        child: const NeuBox(
+                          child: Icon(
+                            Icons.skip_next,
+                            size: 32,
+                          ),
                         ),
                       ),
                     ),
@@ -193,11 +207,23 @@ class _RespiracionState extends State<Respiracion> {
                         ),
                       ),
                     ),
-                    const Expanded(
-                      child: NeuBox(
-                        child: Icon(
-                          Icons.skip_next,
-                          size: 32,
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          // Navigate when the first container is tapped
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return const Dolor();
+                              },
+                            ),
+                          );
+                        },
+                        child: const NeuBox(
+                          child: Icon(
+                            Icons.skip_next,
+                            size: 32,
+                          ),
                         ),
                       ),
                     ),

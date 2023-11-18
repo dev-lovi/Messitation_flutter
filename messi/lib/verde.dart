@@ -2,20 +2,20 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:messi/emociones.dart';
+import 'package:messi/celeste.dart';
+import 'package:messi/naranja.dart';
 import 'package:messi/neu_box.dart';
-import 'package:messi/respiracion.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-class Sentidos extends StatefulWidget {
-  const Sentidos({super.key});
+class Verde extends StatefulWidget {
+  const Verde({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _SentidosState createState() => _SentidosState();
+  VerdeState createState() => VerdeState();
 }
 
-class _SentidosState extends State<Sentidos> {
+class VerdeState extends State<Verde> {
   AudioPlayer player = AudioPlayer();
   bool isPlaying = false;
   double progressValue = 0.0;
@@ -81,7 +81,7 @@ class _SentidosState extends State<Sentidos> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.asset('images/sentidos_cover.png'),
+                      child: Image.asset('images/verde_cover.png'),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -92,7 +92,7 @@ class _SentidosState extends State<Sentidos> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Messitación 1',
+                                'Messitación 3',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -103,7 +103,7 @@ class _SentidosState extends State<Sentidos> {
                                 height: 6,
                               ),
                               const Text(
-                                'Sentidos',
+                                'Meditación libre',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 22,
@@ -163,7 +163,7 @@ class _SentidosState extends State<Sentidos> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return const Emociones();
+                                return const Naranja();
                               },
                             ),
                           );
@@ -214,7 +214,7 @@ class _SentidosState extends State<Sentidos> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return const Respiracion();
+                                return const Celeste();
                               },
                             ),
                           );

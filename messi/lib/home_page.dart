@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:messi/celeste.dart';
+import 'package:messi/dolor.dart';
+import 'package:messi/emociones.dart';
+import 'package:messi/naranja.dart';
 import 'package:messi/sentidos.dart';
 import 'package:messi/respiracion.dart';
-import 'package:messi/playerfive.dart';
+import 'package:messi/verde.dart';
+import 'package:messi/violeta.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,7 +24,16 @@ class HomePage extends StatelessWidget {
               spacing: 10,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //!prepare for copy/paste this in the future
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const Violeta();
+                        },
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
@@ -31,7 +45,16 @@ class HomePage extends StatelessWidget {
                   child: const Text('¿Cómo usar la app?'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //!prepare for copy/paste this in the future
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const Violeta();
+                        },
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
@@ -43,7 +66,16 @@ class HomePage extends StatelessWidget {
                   child: const Text('Recomendaciones'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //!prepare for copy/paste this in the future
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const Violeta();
+                        },
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
@@ -55,7 +87,16 @@ class HomePage extends StatelessWidget {
                   child: const Text('Autor'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //!prepare for copy/paste this in the future
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const Violeta();
+                        },
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
@@ -67,7 +108,16 @@ class HomePage extends StatelessWidget {
                   child: const Text('Creditos'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //!prepare for copy/paste this in the future
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const Violeta();
+                        },
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
@@ -153,14 +203,14 @@ class HomePage extends StatelessWidget {
                           height: 140,
                           color: Colors.transparent,
 
-                          //? ACA AGREGAMOS EL ENLACE A CINCO
+                          //? ACA AGREGAMOS EL ENLACE
                           child: GestureDetector(
                             onTap: () {
                               // Navigate when the first container is tapped
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (BuildContext context) {
-                                    return const PlayerFive();
+                                    return const Violeta();
                                   },
                                 ),
                               );
@@ -179,8 +229,20 @@ class HomePage extends StatelessWidget {
                           width: 155,
                           height: 195,
                           color: Colors.transparent,
-                          child: Column(
-                            children: [Image.asset('images/emociones.png')],
+                          child: GestureDetector(
+                            onTap: () {
+                              // Navigate when the first container is tapped
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                    return const Emociones();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Column(
+                              children: [Image.asset('images/emociones.png')],
+                            ),
                           ),
                         ),
                       ],
@@ -189,36 +251,91 @@ class HomePage extends StatelessWidget {
                       spacing: 10,
                       direction: Axis.vertical,
                       children: [
-                        Container(
-                          width: 155,
-                          height: 92.5,
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [Image.asset('images/libre_naranja.png')],
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate when the first container is tapped
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const Naranja();
+                                },
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: 155,
+                            height: 92.5,
+                            color: Colors.transparent,
+                            child: Column(
+                              children: [
+                                Image.asset('images/libre_naranja.png')
+                              ],
+                            ),
                           ),
                         ),
                         Container(
                           width: 155,
                           height: 140,
                           color: Colors.transparent,
-                          child: Column(
-                            children: [Image.asset('images/libre_verde.png')],
+                          //? ACA AGREGAMOS EL ENLACE
+                          child: GestureDetector(
+                            onTap: () {
+                              // Navigate when the first container is tapped
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                    return const Verde();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Column(
+                              children: [Image.asset('images/libre_verde.png')],
+                            ),
                           ),
                         ),
                         Container(
                           width: 155,
                           height: 195,
                           color: Colors.transparent,
-                          child: Column(
-                            children: [Image.asset('images/dolor.png')],
+                          //? ACA AGREGAMOS EL ENLACE
+                          child: GestureDetector(
+                            onTap: () {
+                              // Navigate when the first container is tapped
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                    return const Dolor();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Column(
+                              children: [Image.asset('images/dolor.png')],
+                            ),
                           ),
                         ),
                         Container(
                           width: 155,
                           height: 92.5,
                           color: Colors.transparent,
-                          child: Column(
-                            children: [Image.asset('images/libre_celeste.png')],
+                          //? ACA AGREGAMOS EL ENLACE
+                          child: GestureDetector(
+                            onTap: () {
+                              // Navigate when the first container is tapped
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                    return const Celeste();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Column(
+                              children: [
+                                Image.asset('images/libre_celeste.png')
+                              ],
+                            ),
                           ),
                         ),
                       ],

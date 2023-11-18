@@ -2,20 +2,20 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:messi/emociones.dart';
+import 'package:messi/celeste.dart';
+import 'package:messi/naranja.dart';
 import 'package:messi/neu_box.dart';
-import 'package:messi/respiracion.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-class Sentidos extends StatefulWidget {
-  const Sentidos({super.key});
+class Violeta extends StatefulWidget {
+  const Violeta({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _SentidosState createState() => _SentidosState();
+  VioletaState createState() => VioletaState();
 }
 
-class _SentidosState extends State<Sentidos> {
+class VioletaState extends State<Violeta> {
   AudioPlayer player = AudioPlayer();
   bool isPlaying = false;
   double progressValue = 0.0;
@@ -81,7 +81,7 @@ class _SentidosState extends State<Sentidos> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.asset('images/sentidos_cover.png'),
+                      child: Image.asset('images/violeta_cover.png'),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -103,7 +103,7 @@ class _SentidosState extends State<Sentidos> {
                                 height: 6,
                               ),
                               const Text(
-                                'Sentidos',
+                                'Meditación libre',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 22,
@@ -113,7 +113,7 @@ class _SentidosState extends State<Sentidos> {
                           ),
                           const Icon(
                             Icons.favorite,
-                            color: Colors.green,
+                            color: Colors.purple,
                             size: 32,
                           )
                         ],
@@ -132,7 +132,7 @@ class _SentidosState extends State<Sentidos> {
                 children: [
                   Text('0:00'),
                   Icon(Icons.shuffle),
-                  Icon(Icons.library_music, color: Colors.green),
+                  Icon(Icons.library_music, color: Colors.purple),
                   Text('8:23'),
                 ],
               ),
@@ -144,7 +144,7 @@ class _SentidosState extends State<Sentidos> {
                 child: LinearPercentIndicator(
                   lineHeight: 10,
                   percent: totalDuration.inSeconds > 0 ? progressValue : 0.00,
-                  progressColor: Colors.green,
+                  progressColor: Colors.purple,
                   backgroundColor: Colors.transparent,
                 ),
               ),
@@ -163,7 +163,7 @@ class _SentidosState extends State<Sentidos> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return const Emociones();
+                                return const Celeste();
                               },
                             ),
                           );
@@ -214,7 +214,7 @@ class _SentidosState extends State<Sentidos> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return const Respiracion();
+                                return const Naranja();
                               },
                             ),
                           );
