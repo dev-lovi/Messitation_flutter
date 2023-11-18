@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:messi/home_page.dart';
 import 'package:messi/neu_box.dart';
 import 'package:messi/verde.dart';
 import 'package:messi/violeta.dart';
@@ -61,15 +62,41 @@ class NaranjaState extends State<Naranja> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      appBar: AppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             children: [
               const SizedBox(height: 10),
-              //back and menu butons
 
+              // back button and menu button
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const HomePage();
+                          },
+                        ),
+                      );
+                    },
+                    child: const SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: NeuBox(child: Icon(Icons.arrow_back)),
+                    ),
+                  ),
+                  const Text('L O V I . S A N T I'),
+                  const SizedBox(
+                    height: 60,
+                    width: 60,
+                    child: NeuBox(child: Icon(Icons.menu)),
+                  ),
+                ],
+              ),
               const SizedBox(
                 height: 25,
               ),
@@ -170,7 +197,7 @@ class NaranjaState extends State<Naranja> {
                         },
                         child: const NeuBox(
                           child: Icon(
-                            Icons.skip_next,
+                            Icons.skip_previous,
                             size: 32,
                           ),
                         ),

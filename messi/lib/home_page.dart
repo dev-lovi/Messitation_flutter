@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:messi/celeste.dart';
 import 'package:messi/dolor.dart';
 import 'package:messi/emociones.dart';
+import 'package:messi/main.dart';
 import 'package:messi/naranja.dart';
 import 'package:messi/sentidos.dart';
 import 'package:messi/respiracion.dart';
@@ -15,7 +16,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return const MyApp();
+                },
+              ),
+            );
+          },
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(children: [
           Padding(
@@ -25,14 +39,8 @@ class HomePage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    //!prepare for copy/paste this in the future
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const Violeta();
-                        },
-                      ),
-                    );
+                    _mostrarPopup(context,
+                        'Bienvenido a Messitación, espero que disfrutes la app. Te recomiendo que empieces con las meditaciones guiadas, es recomandable que hagas por lo menos 10 veces la meditación antes de pasar a la siguiente. Las meditaciones libres están pensadas para practicantes avanzados de meditación que no requieran de una guía y solamente quieran una musica tranquila de fondo.');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -46,14 +54,8 @@ class HomePage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    //!prepare for copy/paste this in the future
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const Violeta();
-                        },
-                      ),
-                    );
+                    _mostrarPopup(context,
+                        'Como mencioné anteriormente, es ideal que hagas por lo menos 10 veces una meditación antes de pasar a la siguiente. Además, te recomiendo meditar sentado en una silla o en el suelo, no te acuestes porque podes llegar a quedarte dormido.');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -67,14 +69,8 @@ class HomePage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    //!prepare for copy/paste this in the future
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const Violeta();
-                        },
-                      ),
-                    );
+                    _mostrarPopup(context,
+                        'Soy un estudiante de primer año de Ingeniería Informática, cualquier sugerencia es bienvenida. Pueden contactarme por instagram: @lovi.santi');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -88,14 +84,8 @@ class HomePage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    //!prepare for copy/paste this in the future
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const Violeta();
-                        },
-                      ),
-                    );
+                    _mostrarPopup(context,
+                        'Este espacio es para aclarar que no soy propietario de ninguna de las imagenes y la aplicación está hecha con un fin educativo (para mi propio aprendizaje) y no tiene ningún fin lucrativo.');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -109,14 +99,8 @@ class HomePage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    //!prepare for copy/paste this in the future
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const Violeta();
-                        },
-                      ),
-                    );
+                    _mostrarPopup(context,
+                        '¡Cambiamos de lenguaje! Pasamos de KivyMD a Kotlin, con mejoras en el rendimiento, cambios en la interfaz y mejores meditaciones');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -352,4 +336,27 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+void _mostrarPopup(BuildContext context, String mensaje) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Messitación'),
+        content: Text(
+          mensaje,
+          style: const TextStyle(fontSize: 20.0),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('Cerrar'),
+          ),
+        ],
+      );
+    },
+  );
 }
