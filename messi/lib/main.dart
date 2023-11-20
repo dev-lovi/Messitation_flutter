@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             const Text(
-              'a Messitacion',
+              'a Messito',
               style: TextStyle(
                   color: Colors.green,
                   fontSize: 35,
