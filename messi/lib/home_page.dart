@@ -12,7 +12,7 @@ import 'package:messi/violeta.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
+  @override //dia 19 y 20 de estudio
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
