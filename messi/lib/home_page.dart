@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
               ),
             );
           },
-        ), //dia 17 y 18 dedicado a imagenes
+        ), //dia 19
       ),
       body: SingleChildScrollView(
         child: Column(children: [
